@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:FormularioPersona"
         mc:Ignorable="d"
         Title="Formulario persona" Height="450" Width="800"
-        MinWidth="800">
+        MinWidth="800"
+        Icon="Assets/icon.ico">
     <DockPanel>
         <TextBlock DockPanel.Dock="Top"
                    Text="Formulario"
