@@ -5,26 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FormularioPersona"
         mc:Ignorable="d"
-        Title="Formulario persona" Height="450" Width="800"
+        Title="Formulario persona"
+        Height="450"
+        Width="800"
         MinWidth="800"
         Icon="Assets/icon.ico">
+    <Window.Resources>
+        <!--Estilo Título-->
+        <Style TargetType="{x:Type TextBlock}"
+               x:Key="Titulo">
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Text"
+                    Value="Formulario" />
+        </Style>
+        <!--Estilo Pie ventana-->
+        <Style TargetType="{x:Type TextBlock}"
+               x:Key="PieVentana">
+            <Setter Property="FontSize"
+                    Value="20" />
+            <Setter Property="FontStyle"
+                    Value="Italic" />
+            <Setter Property="Text"
+                    Value="Sandra Hurtado" />
+        </Style>
+        <!--Estilo botones-->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="DockPanel.Dock"
+                    Value="Right" />
+        </Style>
+        <!--Estilo bordes StackPanel-->
+        <Style TargetType="{x:Type Border}"
+               x:Key="bordesStackPanel">
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="2" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+            <Setter Property="Margin"
+                    Value="5" />
+        </Style>
+        <!--Estilos TextBlock-->
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin"
+                    Value="3" />
+        </Style>
+        <!--Estilos imágenes ayuda-->
+        <Style TargetType="{x:Type Image}"
+               x:Key="imagenAyuda">
+            <Setter Property="Source"
+                    Value="Assets/help.ico" />
+            <Setter Property="Width"
+                    Value="30" />
+        </Style>
+        <!--Estilos TextBox-->
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Height" Value="20"/>
+
+        </Style>
+    </Window.Resources>
     <DockPanel>
         <TextBlock DockPanel.Dock="Top"
-                   Text="Formulario"
-                   HorizontalAlignment="Center"
-                   FontSize="40"
-                   FontWeight="Bold" />
+                   Style="{StaticResource Titulo}"
+                   HorizontalAlignment="Center"/>
         <DockPanel DockPanel.Dock="Bottom"
                    LastChildFill="False">
-            <TextBlock VerticalAlignment="Bottom"
-                       Text="Sandra Hurtado"
-                       FontStyle="Italic" />
-            <Button DockPanel.Dock="Right"
-                    Margin="3"
-                    Content="Cancelar" />
-            <Button DockPanel.Dock="Right"
-                    Margin="3"
-                    Content="Aceptar" />
+            <TextBlock Style="{StaticResource PieVentana}"/>
+            <Button Content="Cancelar" />
+            <Button Content="Aceptar" />
         </DockPanel>
         <!--Imágen-->
         <Image DockPanel.Dock="Right"
@@ -32,13 +82,10 @@
                Margin="5"/>
 
         <!--Primer StackPanel-->
-        <Border BorderBrush="black"
-                BorderThickness="2"
-                Height="100"
+        <Border Height="100"
                 DockPanel.Dock="Top"
-                Margin="5"
-                CornerRadius="5"
-                Background="LightBlue">
+                Background="LightBlue"
+                Style="{StaticResource bordesStackPanel}">
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -51,45 +98,33 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Nombre" 
-                               Margin="3"/>
-                    <TextBox Grid.Column="1"
-                             Height="20" />
-                    <Image Grid.Column="2"
-                           Source="Assets/help.ico"
-                           Width="30" 
+                    <TextBlock Text="Nombre" />
+                    <TextBox Grid.Column="1"/>
+                    <Image Style="{StaticResource imagenAyuda}"
+                        Grid.Column="2"
                            ToolTip="Máximo 100 caracteres"/>
                     <TextBlock Grid.Row="1"
-                               Text="Edad"
-                               Margin="3" />
+                               Text="Edad"/>
                     <TextBox Grid.Row="1"
-                             Height="20" 
                              Grid.Column="1"/>
                     <Image Grid.Row="1"
                         Grid.Column="2"
-                           Source="Assets/help.ico"
-                           Width="30"
+                           Style="{StaticResource imagenAyuda}"
                            ToolTip="Nº entero entre 0 y 100" />
                     <TextBlock Grid.Row="2"
-                               Text="Dirección"
-                               Margin="3" />
+                               Text="Dirección"/>
                     <TextBox Grid.Row="2"
-                             Height="20"
                              Grid.Column="1" />
                     <Image Grid.Row="2"
                            Grid.Column="2"
-                           Source="Assets/help.ico"
-                           Width="30"
+                           Style="{StaticResource imagenAyuda}"
                            ToolTip="Incluir el código postal" />
                 </Grid>
             </StackPanel>
         </Border>
         <!--StackPanel de debajo-->
-        <Border BorderBrush="Black"
-                BorderThickness="2"
-                Height="120"
-                CornerRadius="5"
-                Margin="5">
+        <Border Height="120"
+                Style="{StaticResource bordesStackPanel}">
             <StackPanel Orientation="Horizontal"
                         Background="LightYellow">
                 <GroupBox Header="Aficiones" 
