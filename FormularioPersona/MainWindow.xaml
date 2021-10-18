@@ -62,8 +62,27 @@
         </Style>
         <!--Estilos TextBox-->
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Height" Value="20"/>
-
+            <Setter Property="Height"
+                    Value="20" />
+        </Style>
+        <!--Estilo GroupBox-->
+        <Style TargetType="{x:Type GroupBox}"
+               x:Key="GroupBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="150"/>
+        </Style>
+        <!--Estilo GroupBox_Aficiones-->
+        <Style TargetType="{x:Type GroupBox}"
+               x:Key="GroupboxAficiones"
+               BasedOn="{StaticResource GroupBox}">
+            <Setter Property="Header" Value="Aficiones"/>
+        </Style>
+        <!--Estilo GroupBox_EstadoCivil-->
+        <Style TargetType="{x:Type GroupBox}"
+               x:Key="GroupboxEstadoCivil"
+               BasedOn="{StaticResource GroupBox}">
+            <Setter Property="Header"
+                    Value="Estado civil" />
         </Style>
     </Window.Resources>
     <DockPanel>
@@ -127,9 +146,7 @@
                 Style="{StaticResource bordesStackPanel}">
             <StackPanel Orientation="Horizontal"
                         Background="LightYellow">
-                <GroupBox Header="Aficiones" 
-                          Margin="5"
-                          Width="150">
+                <GroupBox Style="{StaticResource GroupboxAficiones}">
                     <StackPanel>
                         <CheckBox Content="Hacer deporte"/>
                         <CheckBox Content="Viajar" />
@@ -137,9 +154,7 @@
                         <CheckBox Content="Leer cómics" />
                     </StackPanel>
                 </GroupBox>
-                <GroupBox Header="Estado civil"
-                          Margin="5"
-                          Width="150">
+                <GroupBox Style="{StaticResource GroupboxEstadoCivil}">
                     <StackPanel>
                         <RadioButton Content="Soltero" />
                         <RadioButton Content="Casado" />
